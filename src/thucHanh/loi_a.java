@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 public class loi_a extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldNhap;
+	private JTextField txtTapTin;
 	private JButton btnNewButton_1;
 
 	/**
@@ -58,15 +58,15 @@ public class loi_a extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		
-		textFieldNhap = new JTextField();
-		textFieldNhap.setBounds(62, 169, 272, 20);
-		contentPane.add(textFieldNhap);
-		textFieldNhap.setColumns(10);
+		txtTapTin = new JTextField();
+		txtTapTin.setBounds(62, 169, 272, 20);
+		contentPane.add(txtTapTin);
+		txtTapTin.setColumns(10);
 
 		JButton btnNewButton = new JButton("xem hình");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tt = textFieldNhap.getText();
+				String tt = txtTapTin.getText();
 				ImageIcon icon = new ImageIcon(tt);
 				icon.setImage(icon.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_DEFAULT ));
 				lblNewLabel.setIcon(icon);
@@ -85,7 +85,7 @@ public class loi_a extends JFrame {
 				int chon = jfc.showOpenDialog(rootPane);
 				if(chon == JFileChooser.APPROVE_OPTION) {
 					File file = jfc.getSelectedFile();
-					textFieldNhap.setText(file.getAbsolutePath());
+					txtTapTin.setText(file.getAbsolutePath());
 				}
 			}
 		});
