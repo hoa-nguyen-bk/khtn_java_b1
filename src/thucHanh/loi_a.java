@@ -76,7 +76,7 @@ public class loi_a extends JFrame {
 		btnNewButton_1 = new JButton("...");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFileChooser jfc = new JFileChooser("src/hinhanh");
+				JFileChooser jfc = new JFileChooser("src/ThucHanh/HinhAnh");
 				jfc.setDialogTitle("hayx chonj ");
 				int chon = jfc.showOpenDialog(rootPane);
 			}
