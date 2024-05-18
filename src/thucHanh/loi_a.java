@@ -7,6 +7,7 @@ import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
@@ -14,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
@@ -77,8 +79,14 @@ public class loi_a extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser jfc = new JFileChooser("src/ThucHanh/HinhAnh");
-				jfc.setDialogTitle("hayx chonj ");
+				jfc.setDialogTitle("Hãy chọn 1 tập tin hình ảnh để xem");
+				jfc.setFileFilter(new FileNameExtensionFilter("Các tập tin *.jpg","jpg"));
+				jfc.setFileFilter(new FileNameExtensionFilter("Các tập tin *.png","png"));
 				int chon = jfc.showOpenDialog(rootPane);
+				if(chon == JFileChooser.APPROVE_OPTION) {
+					File file = jfc.getSelectedFile();
+					textFieldNhap.setText(file.getAbsolutePath());
+				}
 			}
 		});
 		btnNewButton_1.setBounds(335, 168, 89, 23);
