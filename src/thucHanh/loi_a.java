@@ -2,14 +2,26 @@ package thucHanh;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JTextPane;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class loi_a extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textFieldNhap;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -35,8 +47,41 @@ public class loi_a extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-	}
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(loi_a.class.getResource("/thucHanh/HinhAnh/1_dog.png")));
+		lblNewLabel.setBounds(101, 11, 190, 147);
+		contentPane.add(lblNewLabel);
+		
+		
+		textFieldNhap = new JTextField();
+		textFieldNhap.setBounds(62, 169, 272, 20);
+		contentPane.add(textFieldNhap);
+		textFieldNhap.setColumns(10);
 
+		JButton btnNewButton = new JButton("xem hình");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String tt = textFieldNhap.getText();
+				ImageIcon icon = new ImageIcon(tt);
+				icon.setImage(icon.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_DEFAULT ));
+				lblNewLabel.setIcon(icon);
+			}
+		});
+		btnNewButton.setBounds(157, 205, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("...");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser jfc = new JFileChooser("src/hinhanh");
+				jfc.setDialogTitle("hayx chonj ");
+				int chon = jfc.showOpenDialog(rootPane);
+			}
+		});
+		btnNewButton_1.setBounds(335, 168, 89, 23);
+		contentPane.add(btnNewButton_1);
+	}
 }

@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.JTree;
 
 public class chao_form extends JFrame {
 
@@ -38,6 +39,7 @@ public class chao_form extends JFrame {
 	 * Create the frame.
 	 */
 	public chao_form() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -56,7 +58,7 @@ public class chao_form extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel();
-		lblNewLabel_1.setBounds(43, 108, 272, 14);
+		lblNewLabel_1.setBounds(43, 160, 272, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("submit");
